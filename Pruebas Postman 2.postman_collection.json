@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "52d9e5ee-a03b-468d-a2a9-6e55ca35e8d7",
+		"name": "Pruebas Postman 2",
+		"description": "Esta es mi primera coleccion.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request GET",
+			"item": [
+				{
+					"name": "listarClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}clientesAll",
+							"host": [
+								"{{urlBase}}clientesAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarClientePorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2bf4ef46-84cc-4a7e-a5d1-3387505ccb65",
+								"exec": [
+									"pm.test(\"Nombre es Víctor\", function(){\r",
+									"  nombre = pm.response.json().nombre;\r",
+									"  console.log(nombre);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}clienteById/8",
+							"host": [
+								"{{urlBase}}clienteById"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
